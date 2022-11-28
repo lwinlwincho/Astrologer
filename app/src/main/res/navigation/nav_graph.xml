@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.llc.astrologer.home.HomeFragment"
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment_to_thetYoutFragment"
+            app:destination="@id/thetYoutFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_maharBoteFragment"
+            app:destination="@id/maharBoteFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_maharBoteThetYoutFragment"
+            app:destination="@id/maharBoteThetYoutFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_josarrFragment"
+            app:destination="@id/josarrFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/maharBoteFragment"
+        android:name="com.llc.astrologer.mahar_bote.MaharBoteFragment"
+        android:label="MaharBoteFragment">
+        <action
+            android:id="@+id/action_maharBoteFragment_to_showFragment"
+            app:destination="@id/showFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/josarrFragment"
+        android:name="com.llc.astrologer.josarr.JosarrFragment"
+        android:label="fragment_josarr"
+        tools:layout="@layout/fragment_josarr" />
+    <fragment
+        android:id="@+id/maharBoteThetYoutFragment"
+        android:name="com.llc.astrologer.maharbote_thetyout.MaharBoteThetYoutFragment"
+        android:label="fragment_mahar_bote_thet_yout"
+        tools:layout="@layout/fragment_mahar_bote_thet_yout" />
+    <fragment
+        android:id="@+id/thetYoutFragment"
+        android:name="com.llc.astrologer.thet_yout.ThetYoutFragment"
+        android:label="fragment_thet_yout"
+        tools:layout="@layout/fragment_thet_yout" />
+    <fragment
+        android:id="@+id/showFragment"
+        android:name="com.llc.astrologer.show.ShowFragment"
+        android:label="fragment_show"
+        tools:layout="@layout/fragment_show">
+        <argument
+            android:name="about"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

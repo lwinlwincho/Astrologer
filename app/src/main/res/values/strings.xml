@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Astrologer</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn1">မဟာဘုတ် အဟော</string>
+    <string name="btn2">မဟာဘုတ် သက်ရောက်အဟော</string>
+    <string name="btn3">ဂြိုဟ်စား အဟော</string>
+    <string name="btn4">သက်ရောက် အဟော</string>
+    <string name="btn5">ဆယ့်နှစ်ရာသီခွင် ဗေဒင်အဟော</string>
+    <string name="btn_back">နောက်သို့</string>
+
+    <string name="age">အသက်</string>
+    <string name="day">မွေးနံ</string>
+
+    <string-array name="month">
+        <item>တနင်္ဂနွေ</item>
+        <item>တနင်္လာ</item>
+        <item>အင်္ဂါ</item>
+        <item>ဗုဒ္ဓဟူး</item>
+        <item>ကြာသပတေး</item>
+        <item>သောကြာ</item>
+        <item>စနေ</item>
+    </string-array>
+
+
+</resources>
+
