@@ -11,7 +11,7 @@
     <string name="age">အသက်</string>
     <string name="day">မွေးနံ</string>
 
-    <string-array name="month">
+    <string-array name="maharBote">
         <item>တနင်္ဂနွေ</item>
         <item>တနင်္လာ</item>
         <item>အင်္ဂါ</item>
@@ -21,6 +21,16 @@
         <item>စနေ</item>
     </string-array>
 
+    <string-array name="dayJosar">
+        <item>တနင်္ဂနွေ</item>
+        <item>တနင်္လာ</item>
+        <item>အင်္ဂါ</item>
+        <item>ဗုဒ္ဓဟူး</item>
+        <item>စနေ</item>
+        <item>ကြာသပတေး</item>
+        <item>ရာဟု</item>
+        <item>သောကြာ</item>
+    </string-array>
 
 </resources>
 

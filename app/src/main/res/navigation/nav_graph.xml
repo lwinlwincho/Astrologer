@@ -31,15 +31,19 @@
             app:destination="@id/showFragment" />
     </fragment>
     <fragment
+        android:id="@+id/maharBoteThetYoutFragment"
+        android:name="com.llc.astrologer.maharbote_thetyout.MaharBoteThetYoutFragment"
+        android:label="fragment_mahar_bote_thet_yout"
+        tools:layout="@layout/fragment_mahar_bote_thet_yout" >
+        <action
+            android:id="@+id/action_maharBoteThetYoutFragment_to_showFragment"
+            app:destination="@id/showFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/josarrFragment"
         android:name="com.llc.astrologer.josarr.JosarrFragment"
         android:label="fragment_josarr"
         tools:layout="@layout/fragment_josarr" />
-    <fragment
-        android:id="@+id/maharBoteThetYoutFragment"
-        android:name="com.llc.astrologer.maharbote_thetyout.MaharBoteThetYoutFragment"
-        android:label="fragment_mahar_bote_thet_yout"
-        tools:layout="@layout/fragment_mahar_bote_thet_yout" />
     <fragment
         android:id="@+id/thetYoutFragment"
         android:name="com.llc.astrologer.thet_yout.ThetYoutFragment"

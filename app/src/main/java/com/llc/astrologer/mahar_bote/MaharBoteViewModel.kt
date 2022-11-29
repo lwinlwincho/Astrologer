@@ -2,11 +2,10 @@ package com.llc.astrologer.mahar_bote
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import java.time.Year
 
 class MaharBoteViewModel : ViewModel() {
 
-    private var _year = 0
+    private var _year = 1383
     val year: Int get() = _year
 
     private var _age = 0
@@ -23,27 +22,48 @@ class MaharBoteViewModel : ViewModel() {
 
     var remainderList = listOf(1, 4, 0, 3, 6, 2, 5)
 
-    var maharBoteList = mutableListOf<String>()
+    var remainderList1 = listOf<Int>()
+    var remainderList2 = listOf<Int>()
 
     private var _newRemainderList = mutableListOf<Int>()
     val newRemainderList = _newRemainderList
 
-    var remainderList1 = listOf<Int>()
-    var remainderList2 = listOf<Int>()
+    var maharBoteList = mutableListOf<String>()
+
+    fun getRemainder(age: Int) {
+        _year -= age
+        _remainder = _year % 7
+        //return remainder
+
+        _remainderListPosition = remainderList.indexOf(_remainder)
+        _lastItem = remainderList.size
+
+        remainderList1 = remainderList.subList(_remainderListPosition, _lastItem)
+        remainderList2 = remainderList.subList(0, _remainderListPosition)
+
+        _newRemainderList.addAll(remainderList1)
+        _newRemainderList.addAll(remainderList2)
+    }
+
+    fun getMaharBoteList(position: Int): String {
+        addMaharBote()
+        return maharBoteList[newRemainderList.indexOf(position)]
+    }
 
     fun addMaharBote() {
+
         maharBoteList.add(
             """သင်သည်  "ဘင်္ဂဖွား"  ဖြစ်ပါသည်။
 
-            ဘင်္ဂဖွားမှာ၊ ပျက်ပြားစွာ၊ မွေးကာလာတတ်မည်။
-            ကြံစည်ပြုကာ၊ ပျက်တတ်တာ၊ သေချာမှတ်ရမည်။
-            
-            ငယ်စဉ်က ရောဂါ‌ေ၀ဒနာ များပြားပြီး ချူချာတတ်သည်။
-            မိဘ၊ ဆွေမျိုး၊ ညာတိတို့ စိတ်သောက ကြောင့်ကြများ ရတတ်သည်။
-            စိုးရိမ်ပူဆွေးခြင်း၊ စိတ်ပျက်လွယ်ခြင်း၊ စိတ်နုပြီးကြောက်လန့်ခြင်းတို့ ရှိတတ်သည်။။
-            ရောဂါ ဖိစီးနှိပ်စက် တတ်သည်။ 
-            အပျက်အစီး ဒုက္ခများနှင့်သာ တွေ့ကြုံနေရတတ်သည်။
-            ဥစ္စာမတည် ပျက်ပြားဆုံးရှုံးတတ်သည်။"""
+ဘင်္ဂဖွားမှာ၊ ပျက်ပြားစွာ၊ မွေးကာလာတတ်မည်။
+ကြံစည်ပြုကာ၊ ပျက်တတ်တာ၊ သေချာမှတ်ရမည်။
+
+ငယ်စဉ်က ရောဂါ‌ေ၀ဒနာ များပြားပြီး ချူချာတတ်သည်။
+မိဘ၊ ဆွေမျိုး၊ ညာတိတို့ စိတ်သောက ကြောင့်ကြများ ရတတ်သည်။
+စိုးရိမ်ပူဆွေးခြင်း၊ စိတ်ပျက်လွယ်ခြင်း၊ စိတ်နုပြီးကြောက်လန့်ခြင်းတို့ ရှိတတ်သည်။။
+ရောဂါ ဖိစီးနှိပ်စက် တတ်သည်။ 
+အပျက်အစီး ဒုက္ခများနှင့်သာ တွေ့ကြုံနေရတတ်သည်။
+ဥစ္စာမတည် ပျက်ပြားဆုံးရှုံးတတ်သည်။"""
         )
         maharBoteList.add(
             "သင်သည်  \"မာရဏဖွား\"  ဖြစ်ပါသည်။\n" +
@@ -138,28 +158,6 @@ class MaharBoteViewModel : ViewModel() {
                     "ဇာတ်သမား(သဘင်သည်) ဖြစ်တတ်သည်။\n" +
                     "အဟောအပြော ကောင်းသူ ဖြစ်တတ်သည်။\n"
         )
-    }
-
-
-    fun getRemainder(age: Int, year: Int) {
-        _year = year - age
-        _remainder = _year % 7
-        //return remainder
-
-        _remainderListPosition = remainderList.indexOf(_remainder)
-        _lastItem = remainderList.size
-
-        remainderList1 = remainderList.subList(_remainderListPosition, _lastItem)
-        remainderList2 = remainderList.subList(0, _remainderListPosition)
-
-        _newRemainderList.addAll(remainderList1)
-        _newRemainderList.addAll(remainderList2)
-
-    }
-
-    fun getMaharBoteList(position: Int) :String{
-        addMaharBote()
-        return maharBoteList[newRemainderList.indexOf(position)]
     }
 
     override fun onCleared() {
