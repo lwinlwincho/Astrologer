@@ -9,9 +9,6 @@
         android:name="com.llc.astrologer.home.HomeFragment"
         android:label="HomeFragment">
         <action
-            android:id="@+id/action_homeFragment_to_thetYoutFragment"
-            app:destination="@id/thetYoutFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_maharBoteFragment"
             app:destination="@id/maharBoteFragment" />
         <action
@@ -20,6 +17,9 @@
         <action
             android:id="@+id/action_homeFragment_to_josarrFragment"
             app:destination="@id/josarrFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_thetYoutFragment"
+            app:destination="@id/thetYoutFragment" />
     </fragment>
 
     <fragment
