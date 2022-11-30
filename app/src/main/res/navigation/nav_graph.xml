@@ -43,12 +43,20 @@
         android:id="@+id/josarrFragment"
         android:name="com.llc.astrologer.josarr.JosarrFragment"
         android:label="fragment_josarr"
-        tools:layout="@layout/fragment_josarr" />
+        tools:layout="@layout/fragment_josarr" >
+        <action
+            android:id="@+id/action_josarrFragment_to_showFragment"
+            app:destination="@id/showFragment" />
+    </fragment>
     <fragment
         android:id="@+id/thetYoutFragment"
         android:name="com.llc.astrologer.thet_yout.ThetYoutFragment"
         android:label="fragment_thet_yout"
-        tools:layout="@layout/fragment_thet_yout" />
+        tools:layout="@layout/fragment_thet_yout" >
+        <action
+            android:id="@+id/action_thetYoutFragment_to_showFragment"
+            app:destination="@id/showFragment" />
+    </fragment>
     <fragment
         android:id="@+id/showFragment"
         android:name="com.llc.astrologer.show.ShowFragment"

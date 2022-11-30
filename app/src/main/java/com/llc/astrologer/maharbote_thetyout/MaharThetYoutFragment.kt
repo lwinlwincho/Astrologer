@@ -8,11 +8,15 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.llc.astrologer.R
 import com.llc.astrologer.databinding.FragmentMaharBoteThetYoutBinding
+import com.llc.astrologer.mahar_bote.MaharBoteViewModel
 
 class MaharBoteThetYoutFragment : Fragment(), AdapterView.OnItemSelectedListener {
+
+    private val viewModel: MaharThetYoutViewModel by viewModels()
 
     private var _binding: FragmentMaharBoteThetYoutBinding? = null
     private val binding get() = _binding!!
@@ -27,21 +31,17 @@ class MaharBoteThetYoutFragment : Fragment(), AdapterView.OnItemSelectedListener
     var remainderListPosition = 0
     var lastItem = 0
 
-    var i: Int = 0
-    var j: Int = spnDayPosition
-    var k: Int = 0
-
     var remainderList = listOf(1, 4, 0, 3, 6, 2, 5)
     var remainderList1 = listOf<Int>()
     var remainderList2 = listOf<Int>()
     private var newRemainderList = mutableListOf<Int>()
 
+    var agePlus: Int = 0
+    var joValue: Int = 0
 
-    var remainderArr1 = ArrayList<Int>()
-    var maharThetyout = ArrayList<String>()
-    var jo = ArrayList<Int>()
-    var jo1 = ArrayList<Int>()
-    var joSar = ArrayList<Int>()
+    var jo = listOf<Int>(1,2,3,4,0,5,8,6)
+    var joSar = listOf<Int>(6,15,8,17,10,19,12,21)
+    var maharThetyout = mutableListOf<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -179,7 +179,11 @@ class MaharBoteThetYoutFragment : Fragment(), AdapterView.OnItemSelectedListener
 
         binding.btnMaharboteThetyout.setOnClickListener {
             age = binding.etAge.text.toString().toInt()
-            year -= age
+
+            about=viewModel.getRemainder(age, spnDayPosition)
+            //about = viewModel.getMaharBoteThetYout(spnDayPosition)
+
+           /* year -= age
             remainder = year % 7
 
             remainderListPosition = remainderList.indexOf(remainder)
@@ -191,134 +195,41 @@ class MaharBoteThetYoutFragment : Fragment(), AdapterView.OnItemSelectedListener
             newRemainderList.addAll(remainderList1)
             newRemainderList.addAll(remainderList2)
 
-            joSar.add(6)
-            joSar.add(15)
-            joSar.add(8)
-            joSar.add(17)
-            joSar.add(10)
-            joSar.add(19)
-            joSar.add(12)
-            joSar.add(21)
-
-            /* jo.add("တနင်္ဂနွေ")
-             jo.add("တနင်္လာ")
-             jo.add("အင်္ဂါ")
-             jo.add("ဗုဒ္ဓဟူး")
-             jo.add("စနေ")
-             jo.add("ကြာသပတေး")
-             jo.add("ရာဟု")
-             jo.add("သောကြာ")*/
-
-            /*jo1.add("တနင်္ဂနွေ")
-            jo1.add("တနင်္လာ")
-            jo1.add("အင်္ဂါ")
-            jo1.add("ဗုဒ္ဓဟူး")
-            jo1.add("ကြာသပတေး")
-            jo1.add("သောကြာ")
-            jo1.add("စနေ")
-            jo1.add("ရာဟု")*/
-
-            jo.add(1)
-            jo.add(2)
-            jo.add(3)
-            jo.add(4)
-            jo.add(0)
-            jo.add(5)
-            jo.add(8)
-            jo.add(6)
-
-            jo1.add(1)
-            jo1.add(2)
-            jo1.add(3)
-            jo1.add(4)
-            jo1.add(5)
-            jo1.add(6)
-            jo1.add(0)
-            jo1.add(8)
-
             if (age > 0 && age <= joSar[spnDayPosition]) {
-                i = joSar[spnDayPosition]
+                agePlus = joSar[spnDayPosition]
             } else if (age > joSar[spnDayPosition]) {
-                i = joSar[spnDayPosition]
+                agePlus = joSar[spnDayPosition]
 
-                while (age > i) {
+                while (age > agePlus) {
                     if (spnDayPosition in 0..6)
                         ++spnDayPosition
                     else
                         spnDayPosition = 0
 
-                    i += joSar[spnDayPosition]
+                    agePlus += joSar[spnDayPosition]
                 }
             }
-
-            /*while (jo1[j] != jo[spnDayPosition]) {
-                if (j in 0..6)
-                    ++j
-                else j = 0
-            }*/
-
             if (spnDayPosition == 6)
                 spnDayPosition = 3
+            joValue = jo[spnDayPosition]
+            */
 
-          k=jo[spnDayPosition]
-           //  i = jo1.indexOf(jo1[++j])
-
-            val action = MaharBoteThetYoutFragmentDirections.actionMaharBoteThetYoutFragmentToShowFragment(
-                maharThetyout[newRemainderList.indexOf(k)]
-            )
-           /* val action = MaharBoteThetYoutFragmentDirections.actionMaharBoteThetYoutFragmentToShowFragment(
-                "maharThetyout[newRemainderList.indexOf(0)]"
-            )*/
+            val action =
+                MaharBoteThetYoutFragmentDirections.actionMaharBoteThetYoutFragmentToShowFragment(
+                    maharThetyout[newRemainderList.indexOf(joValue)]
+                )
             findNavController().navigate(action)
-
-            Toast.makeText(
-                requireContext(),
-                "spnDayPosition$spnDayPosition",
-                Toast.LENGTH_LONG
-            ).show()
-
-            Toast.makeText(
-                requireContext(),
-                "jo1${jo1.toString()}",
-                Toast.LENGTH_LONG
-            ).show()
-            Toast.makeText(
-                requireContext(),
-                "i$i",
-                Toast.LENGTH_LONG
-            ).show()
-            Toast.makeText(
-                requireContext(),
-                "k$k",
-                Toast.LENGTH_LONG
-            ).show()
-            Toast.makeText(
-                requireContext(),
-                "josar${joSar[k]}",
-                Toast.LENGTH_LONG
-            ).show()
-
         }
 
         binding.btnBack.setOnClickListener {
             findNavController().navigateUp()
-            /*activity.let {
-                val intent = Intent(it, MainActivity::class.java)
-                startActivity(intent)
-            }*/
         }
     }
-
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
         if (position in 0..8) {
             spnDayPosition = position
-            // ++spnDayPosition
 
-            /* if (spnDayPosition == 7) {
-                 spnDayPosition = 0
-             }
- */
             Toast.makeText(
                 requireContext(),
                 "spnDayPosition$spnDayPosition",
@@ -327,9 +238,7 @@ class MaharBoteThetYoutFragment : Fragment(), AdapterView.OnItemSelectedListener
         }
     }
 
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
+    override fun onNothingSelected(p0: AdapterView<*>?) { }
 
     override fun onDestroyView() {
         super.onDestroyView()

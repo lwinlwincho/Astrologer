@@ -1,57 +1,33 @@
 package com.llc.astrologer.thet_yout
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
-import com.llc.astrologer.R
-import com.llc.astrologer.databinding.FragmentThetYoutBinding
-import com.llc.astrologer.josarr.JosarrFragmentDirections
-import com.llc.astrologer.josarr.JosarrViewModel
+import androidx.lifecycle.ViewModel
 
-
-class ThetYoutFragment : Fragment(), AdapterView.OnItemSelectedListener {
-
-    private val viewModel: ThetYoutViewModel by viewModels()
-
-    private var _binding: FragmentThetYoutBinding? = null
-    private val binding get() = _binding!!
-
-    private lateinit var about: String
+class ThetYoutViewModel: ViewModel() {
 
     var age = 0
     var spnDayPosition: Int = 0
 
-    var agePlus: Int = 0
+    var agePlus: Int = 1
 
     var thetYout = mutableListOf<String>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentThetYoutBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    fun getThetYout(age:Int,position:Int):String{
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        spnDayPosition=position
 
-        binding.spnDay.onItemSelectedListener = this
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.dayJosar,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            binding.spnDay.adapter = adapter
+        while (agePlus < age) {
+            if (spnDayPosition in 0..6)
+                spnDayPosition++
+            else spnDayPosition = 0
+
+            agePlus++
         }
 
+        addThetYout()
+        return thetYout[spnDayPosition]
+    }
+
+    private fun addThetYout() {
         thetYout.add(
             "သင်သည် ယခုနှစ်တွင် \"တနင်္ဂနွေဂြိုဟ်\" သက်ရောက်နေသဖြင့်\n" +
                     "အရှေ့မြောက်အရပ်သို့ အသွားအလာ ရှောင်ရမည်။\n" +
@@ -235,33 +211,5 @@ class ThetYoutFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     "ရဟန်းမြတ် ဖြစ်ပါလျှင် ကျောင်း၊ ပစ္စည်းလေးပါး ဒါယကာ၊ ဒါယိကာမများ အထောက်အပံ့ကောင်းများရအံ့။\n" +
                     "သောကြာနေ့ နံနက် မြောက်အရပ်ကနေပြီးလျှင် သစ်သီးဆွမ်း ကိုယ်တိုင်လှူပြီး လိုရာဆုတောင်းလေ။")
         )
-
-        binding.btnmahar.setOnClickListener {
-            age = binding.etAge.text.toString().toInt()
-
-            /* agePlus = 1
-             while (agePlus < age) {
-                 if (spnDayPosition in 0..6)
-                     spnDayPosition++
-                 else spnDayPosition = 0
-
-                 agePlus++
-             }*/
-
-            about = viewModel.getThetYout(age, spnDayPosition)
-            val action = ThetYoutFragmentDirections.actionThetYoutFragmentToShowFragment(about)
-            findNavController().navigate(action)
-        }
-
-        binding.btnBack.setOnClickListener {
-            findNavController().navigateUp()
-        }
     }
-
-    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
-        if (position in 0..8)
-            spnDayPosition = position
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {}
 }
