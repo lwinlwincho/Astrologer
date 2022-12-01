@@ -4,25 +4,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".show.ShowFragment">
+    tools:context=".show.ShowFragment"
+    android:background="@drawable/astrologer15">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
         <TextView
             android:id="@+id/tv_show"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp" />
+            android:textAppearance="@style/Theme.Astrologer.Body"
+            android:layout_marginTop="@dimen/margin_big"
+            android:layout_marginStart="@dimen/margin_big"/>
     </ScrollView>
 
     <Button
         android:id="@+id/btn_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_back" />
+        android:text="@string/btn_back"
+        android:background="@drawable/bg_forward"/>
 
 
 </LinearLayout>
