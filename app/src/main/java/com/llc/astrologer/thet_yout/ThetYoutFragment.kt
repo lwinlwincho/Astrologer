@@ -236,7 +236,7 @@ class ThetYoutFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     "သောကြာနေ့ နံနက် မြောက်အရပ်ကနေပြီးလျှင် သစ်သီးဆွမ်း ကိုယ်တိုင်လှူပြီး လိုရာဆုတောင်းလေ။")
         )
 
-        binding.btnmahar.setOnClickListener {
+        binding.btnThetYout.setOnClickListener {
             age = binding.etAge.text.toString().toInt()
 
             /* agePlus = 1

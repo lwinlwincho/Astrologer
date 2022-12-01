@@ -164,7 +164,7 @@ class JosarrFragment : Fragment(), AdapterView.OnItemSelectedListener {
                     "ဘုရားစေတီတော်သို့ ကိုယ်တိုင်သွားရောက်ပြီး လှူဒါန်း၍ ဆုမွန်ကောင်း တောင်းယူပါ။\n")
         )
 
-        binding.btnmahar.setOnClickListener {
+        binding.btnJosarr.setOnClickListener {
             age = binding.etAge.text.toString().toInt()
 
            /*
