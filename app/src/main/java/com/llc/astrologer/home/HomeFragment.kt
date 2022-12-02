@@ -19,7 +19,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,22 +31,25 @@ class HomeFragment : Fragment() {
             val action=HomeFragmentDirections.actionHomeFragmentToMaharBoteFragment()
             findNavController().navigate(action)
         }
+
         binding.btnMaharboteThetyout.setOnClickListener{
             val action=HomeFragmentDirections.actionHomeFragmentToMaharBoteThetYoutFragment()
             findNavController().navigate(action)
         }
+
         binding.btnJosarr.setOnClickListener{
             val action=HomeFragmentDirections.actionHomeFragmentToJosarrFragment()
             findNavController().navigate(action)
         }
+
         binding.btnThetYout.setOnClickListener{
             val action=HomeFragmentDirections.actionHomeFragmentToThetYoutFragment()
             findNavController().navigate(action)
         }
+
         binding.btnTwelve.setOnClickListener{
             val action=HomeFragmentDirections.actionHomeFragmentToMaharBoteFragment()
             findNavController().navigate(action)
         }
-
     }
 }
