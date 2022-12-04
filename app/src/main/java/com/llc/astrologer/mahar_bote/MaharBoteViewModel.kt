@@ -4,9 +4,6 @@ import androidx.lifecycle.ViewModel
 
 class MaharBoteViewModel : ViewModel() {
 
-    private var _year = 1383
-    val year: Int get() = _year
-
     private var _remainder = 0
     val remainder: Int get() = _remainder
 
@@ -27,9 +24,8 @@ class MaharBoteViewModel : ViewModel() {
     private var _maharBoteList = mutableListOf<String>()
     val maharBoteList = _maharBoteList
 
-    fun getRemainder(age: Int) {
-        _year -= age
-        _remainder = _year % 7
+    fun getRemainder(year: Int) {
+        _remainder = year % 7
 
         _remainderListPosition = remainderList.indexOf(_remainder)
         _lastItem = remainderList.size
@@ -153,7 +149,6 @@ class MaharBoteViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
 
-        _year = 0
         _remainder = 0
         _remainderListPosition = 0
         _lastItem = 0

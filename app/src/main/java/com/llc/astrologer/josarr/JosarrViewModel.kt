@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 
 class JosarrViewModel : ViewModel() {
 
-    //var age = 0
     var agePlus: Int = 0
 
     private var _spnDayPosition: Int = 0

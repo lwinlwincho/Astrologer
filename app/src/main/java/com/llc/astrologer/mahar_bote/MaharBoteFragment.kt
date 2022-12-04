@@ -21,7 +21,7 @@ class MaharBoteFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     private lateinit var about: String
 
-    var age = 0
+    var year = 0
     var spnDayPosition: Int = 0
 
     override fun onCreateView(
@@ -49,9 +49,9 @@ class MaharBoteFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
 
         binding.btnmahar.setOnClickListener {
-            age = binding.etAge.text.toString().toInt()
+            year = binding.etYear.text.toString().toInt()
 
-            viewModel.getRemainder(age)
+            viewModel.getRemainder(year)
 
             about = viewModel.getMaharBoteList(spnDayPosition)
 
@@ -84,7 +84,7 @@ class MaharBoteFragment : Fragment(), AdapterView.OnItemSelectedListener {
         super.onDestroyView()
         _binding = null
 
-        age = 0
+        year = 0
         spnDayPosition = 0
     }
 }

@@ -20,28 +20,39 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_age"
-        android:layout_width="0dp"
+        android:id="@+id/tv_hint"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginTop="@dimen/margin_150"
-        android:text="@string/age"
-        android:textAppearance="@style/Theme.Astrologer.Body"
+        android:layout_marginTop="@dimen/margin_30"
+        android:text="@string/tv_year_hint"
+        android:textAppearance="@style/Theme.Astrologer.SubBody"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_head" />
 
-    <EditText
-        android:id="@+id/et_age"
+    <TextView
+        android:id="@+id/tv_year"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_big"
-        android:layout_marginTop="@dimen/margin_135"
+        android:layout_marginTop="@dimen/margin_80"
+        android:text="@string/year"
+        android:textAppearance="@style/Theme.Astrologer.Body"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hint" />
+
+    <EditText
+        android:id="@+id/et_year"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_65"
         android:layout_marginEnd="@dimen/margin_big"
         android:inputType="number"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_age"
-        app:layout_constraintTop_toBottomOf="@+id/tv_head" />
+        app:layout_constraintStart_toEndOf="@+id/tv_year"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hint" />
 
     <TextView
         android:id="@+id/tv_day"
@@ -50,19 +61,18 @@
         android:layout_marginTop="@dimen/margin_70"
         android:text="@string/day"
         android:textAppearance="@style/Theme.Astrologer.Body"
-        app:layout_constraintStart_toStartOf="@+id/tv_age"
-        app:layout_constraintTop_toBottomOf="@+id/tv_age" />
+        app:layout_constraintStart_toStartOf="@+id/tv_year"
+        app:layout_constraintTop_toBottomOf="@+id/tv_year" />
 
     <Spinner
         android:id="@+id/spn_day"
-        android:layout_width="200dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_big"
         android:layout_marginTop="@dimen/margin_70"
-        android:layout_marginEnd="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_90"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_day"
-        app:layout_constraintTop_toBottomOf="@+id/tv_age" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_year" />
 
     <LinearLayout
         android:layout_width="match_parent"

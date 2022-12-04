@@ -14,4 +14,11 @@
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
+    <style name="Theme.Astrologer.SubBody">
+        <item name="fontFamily">@font/open_sans_bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">-0.02</item>
+        <item name="android:textColor">#DDE1F6</item>
+    </style>
 </resources>
